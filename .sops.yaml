@@ -1,0 +1,24 @@
+keys:
+  - &admin_wren 002937658A2F43138C3B267E339C3A5C672CEA46
+  - &server_birdbox age1katxh5pva9vrhjs5rmz8sn9z2vakekl0zpf84k759m4708fugyqqjsvfq4
+  - &server_dullahan age1pxc57nnm3e7duut9nvjkul4c8vt2060pqj59pu3fchdyu5kufvmqznn2e4
+creation_rules:
+  - path_regex: ^nix/secrets/[^/]+\.(txt|json|yaml|env)$
+    key_groups:
+      - pgp:
+          - *admin_wren
+        age:
+          - *server_birdbox
+          - *server_dullahan
+  - path_regex: ^nix/modules/hosts/birdbox/secrets/[^/]+\.(txt|json|yaml|env)$
+    key_groups:
+      - pgp:
+          - *admin_wren
+        age:
+          - *server_birdbox
+  - path_regex: ^nix/modules/hosts/dullahan/secrets/[^/]+\.(txt|json|yaml|env)$
+    key_groups:
+      - pgp:
+          - *admin_wren
+        age:
+          - *server_dullahan
