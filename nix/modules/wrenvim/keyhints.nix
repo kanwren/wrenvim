@@ -25,27 +25,12 @@
             mode = "n";
           }
           {
-            __unkeyed-1 = "cxc";
-            desc = "Cancel exchange";
-            mode = "n";
-          }
-          {
-            __unkeyed-1 = "cxx";
-            desc = "Exchange line";
-            mode = "n";
-          }
-          {
-            __unkeyed-1 = "cx";
+            __unkeyed-1 = "gx";
             group = "exchange";
             mode = "n";
           }
           {
-            __unkeyed-1 = "cxc";
-            desc = "Cancel exchange";
-            mode = "n";
-          }
-          {
-            __unkeyed-1 = "cxx";
+            __unkeyed-1 = "gxx";
             desc = "Exchange line";
             mode = "n";
           }
@@ -62,16 +47,6 @@
           {
             __unkeyed-1 = "ga";
             desc = "Show character info";
-            mode = "n";
-          }
-          {
-            __unkeyed-1 = "gb";
-            group = "block comment";
-            mode = "n";
-          }
-          {
-            __unkeyed-1 = "gbc";
-            desc = "End of line";
             mode = "n";
           }
           {
@@ -108,46 +83,6 @@
             __unkeyed-1 = "grr";
             desc = "Goto references";
             mode = "n";
-          }
-          {
-            __unkeyed-1 = "yS";
-            group = "surround to line";
-            mode = "n";
-          }
-          {
-            __unkeyed-1 = "ySS";
-            desc = "Current line";
-            mode = "n";
-          }
-          {
-            __unkeyed-1 = "ySs";
-            desc = "Current line";
-            mode = "n";
-          }
-          {
-            __unkeyed-1 = "ys";
-            group = "surround";
-            mode = "n";
-          }
-          {
-            __unkeyed-1 = "yss";
-            desc = "Current line";
-            mode = "n";
-          }
-          {
-            __unkeyed-1 = "S";
-            desc = "Surround";
-            mode = "x";
-          }
-          {
-            __unkeyed-1 = "gS";
-            desc = "Virtual surround (suppress indent)";
-            mode = "x";
-          }
-          {
-            __unkeyed-1 = "gb";
-            desc = "Block comment";
-            mode = "x";
           }
           {
             __unkeyed-1 = "gc";
