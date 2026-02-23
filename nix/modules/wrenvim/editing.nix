@@ -57,33 +57,37 @@
         enable = true;
         settings = {
           respect_selection_type = true;
+          mappings = {
+            add = "ma";
+            delete = "md";
+            replace = "ms";
+            find = "mf";
+            find_left = "mF";
+            highlight = "";
+          };
         };
         lazyLoad.settings.keys = [
           {
-            __unkeyed-1 = "sa";
+            __unkeyed-1 = "ma";
             mode = [
               "n"
               "v"
             ];
           }
           {
-            __unkeyed-1 = "sd";
+            __unkeyed-1 = "md";
             mode = [ "n" ];
           }
           {
-            __unkeyed-1 = "sf";
+            __unkeyed-1 = "ms";
             mode = [ "n" ];
           }
           {
-            __unkeyed-1 = "sF";
+            __unkeyed-1 = "mf";
             mode = [ "n" ];
           }
           {
-            __unkeyed-1 = "sh";
-            mode = [ "n" ];
-          }
-          {
-            __unkeyed-1 = "sr";
+            __unkeyed-1 = "mF";
             mode = [ "n" ];
           }
         ];
