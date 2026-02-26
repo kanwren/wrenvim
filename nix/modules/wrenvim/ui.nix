@@ -130,9 +130,81 @@
         };
 
         # fuzzy picker
-        telescope = {
+        telescope.enable = true;
+
+        # icons
+        web-devicons.enable = true;
+
+        # nicer components, like a better vim.ui.input for renaming
+        dressing = {
           enable = true;
-          lazyLoad.settings.keys =
+          settings.select.enabled = false;
+        };
+        telescope.extensions.ui-select = {
+          enable = true;
+        };
+
+        # LSP status indicator
+        fidget = {
+          enable = true;
+        };
+
+        # indent guides
+        indent-blankline = {
+          enable = true;
+          luaConfig.post = /* lua */ ''
+            local ibl = require('ibl')
+            ibl.setup({
+              enabled = true,
+              scope = {
+                enabled = true,
+              },
+              indent = {
+                char = '│',
+              },
+            })
+          '';
+        };
+
+        # undo tree
+        undotree = {
+          enable = true;
+        };
+
+        # highlight trailing whitespace
+        mini-trailspace = {
+          enable = true;
+          settings = {
+            only_in_normal_buffers = true;
+          };
+        };
+
+        # show hex codes as colors: #b4befe, #94e2d5
+        colorizer =
+          let
+            filetypes = [
+              "css"
+              "html"
+              "javascript"
+              "javascriptreact"
+              "lua"
+              "typescript"
+              "typescriptreact"
+              "vim"
+            ];
+          in
+          {
+            enable = true;
+            settings = {
+              inherit filetypes;
+            };
+            lazyLoad.settings.ft = filetypes;
+          };
+      };
+
+      keymaps =
+        let
+          telescopePickerMappings =
             let
               mapPicker =
                 {
@@ -141,9 +213,9 @@
                   desc,
                 }:
                 {
-                  __unkeyed-1 = "<Leader>f${key}";
-                  __unkeyed-2 = "<cmd>Telescope ${picker}<CR>";
-                  inherit desc;
+                  key = "<Leader>f${key}";
+                  action = "<cmd>Telescope ${picker}<CR>";
+                  options = { inherit desc; };
                   mode = [ "n" ];
                 };
             in
@@ -259,99 +331,29 @@
                 desc = "workspace diagnostics";
               })
             ];
-        };
-
-        # icons
-        web-devicons.enable = true;
-
-        # nicer components, like a better vim.ui.input for renaming
-        dressing = {
-          enable = true;
-          settings.select.enabled = false;
-        };
-        telescope.extensions.ui-select = {
-          enable = true;
-        };
-
-        # LSP status indicator
-        fidget = {
-          enable = true;
-        };
-
-        # indent guides
-        indent-blankline = {
-          enable = true;
-          luaConfig.post = /* lua */ ''
-            local ibl = require('ibl')
-            ibl.setup({
-              enabled = true,
-              scope = {
-                enabled = true,
-              },
-              indent = {
-                char = '│',
-              },
-            })
-          '';
-        };
-
-        # undo tree
-        undotree = {
-          enable = true;
-        };
-
-        # highlight trailing whitespace
-        mini-trailspace = {
-          enable = true;
-          settings = {
-            only_in_normal_buffers = true;
-          };
-        };
-
-        # show hex codes as colors: #b4befe, #94e2d5
-        colorizer =
-          let
-            filetypes = [
-              "css"
-              "html"
-              "javascript"
-              "javascriptreact"
-              "lua"
-              "typescript"
-              "typescriptreact"
-              "vim"
-            ];
-          in
+        in
+        telescopePickerMappings
+        ++ [
           {
-            enable = true;
-            settings = {
-              inherit filetypes;
+            key = "<C-l>";
+            action = "<cmd>nohlsearch<CR><C-l>";
+            mode = [
+              "n"
+              "v"
+              "o"
+            ];
+            options = {
+              desc = "Redraw";
+              silent = true;
             };
-            lazyLoad.settings.ft = filetypes;
-          };
-      };
-
-      keymaps = [
-        {
-          key = "<C-l>";
-          action = "<cmd>nohlsearch<CR><C-l>";
-          mode = [
-            "n"
-            "v"
-            "o"
-          ];
-          options = {
-            desc = "Redraw";
-            silent = true;
-          };
-        }
-        {
-          key = "<Leader>u";
-          action = "<cmd>UndotreeToggle<CR>";
-          mode = [ "n" ];
-          options.desc = "Toggle undo tree";
-        }
-      ];
+          }
+          {
+            key = "<Leader>u";
+            action = "<cmd>UndotreeToggle<CR>";
+            mode = [ "n" ];
+            options.desc = "Toggle undo tree";
+          }
+        ];
 
       extraPlugins = [
         {
