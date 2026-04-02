@@ -36,9 +36,42 @@
             ];
           special = lib.concatMap jqCommand [
             {
+              keys = "C";
+              filter = "reduce inputs as $_ (0; . + 1)";
+              args = [ "--null-input" ];
+              desc = "Count";
+            }
+            {
+              keys = "E";
+              filter = "to_entries";
+              desc = "To entries";
+            }
+            {
+              keys = "F";
+              filter = "from_entries";
+              desc = "From entries";
+            }
+            {
+              keys = "G";
+              filter = "reduce inputs as $x ({}; .[$x.key] += [$x.value])";
+              args = [ "--null-input" ];
+              desc = "Gather by key";
+            }
+            {
+              keys = "I";
+              filter = "transpose[]";
+              args = [ "--slurp" ];
+              desc = "Interleave arrays";
+            }
+            {
               keys = "J";
               filter = ".";
               desc = "Format JSON";
+            }
+            {
+              keys = "K";
+              filter = "keys";
+              desc = "Keys";
             }
             {
               keys = "L";
@@ -53,17 +86,7 @@
             {
               keys = "S";
               args = [ "--slurp" ];
-              desc = "Slurp JSON into array";
-            }
-            {
-              keys = "V";
-              filter = ".[]";
-              desc = "Get all values from JSON value";
-            }
-            {
-              keys = "E";
-              filter = "to_entries";
-              desc = "Entries in object";
+              desc = "Slurp into array";
             }
             {
               keys = "T";
@@ -71,10 +94,9 @@
               desc = "Transpose arrays";
             }
             {
-              keys = "C";
-              filter = "reduce inputs as $_ (0; . + 1)";
-              args = [ "--null-input" ];
-              desc = "Count JSON values";
+              keys = "V";
+              filter = ".[]";
+              desc = "Values";
             }
           ];
         in
