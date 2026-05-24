@@ -3,12 +3,6 @@
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
     };
-    import-tree = {
-      url = "github:vic/import-tree";
-    };
-    make-shell = {
-      url = "github:nicknovitski/make-shell";
-    };
     nixpkgs = {
       url = "github:NixOS/nixpkgs?ref=nixos-25.11";
     };
@@ -25,5 +19,15 @@
   };
 
   outputs =
-    inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./nix/modules);
+    inputs:
+    let
+      inherit (inputs.nixpkgs) lib;
+    in
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = lib.fileset.toList (
+        lib.fileset.fileFilter (
+          f: f.type == "regular" && f.hasExt "nix" && !lib.strings.hasPrefix "_" f.name
+        ) ./modules
+      );
+    };
 }

@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "flake-compat": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1696426674,
-        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
-        "type": "github"
-      },
-      "original": {
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -73,21 +57,6 @@
         "type": "github"
       }
     },
-    "import-tree": {
-      "locked": {
-        "lastModified": 1752730890,
-        "narHash": "sha256-GES8fapSLGz36MMPRVNkSUWXUTtqvGQNXHjRmRLfJUY=",
-        "owner": "vic",
-        "repo": "import-tree",
-        "rev": "6ebb8cb87987b20264c09296166543fd3761d274",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vic",
-        "repo": "import-tree",
-        "type": "github"
-      }
-    },
     "ixx": {
       "inputs": {
         "flake-utils": [
@@ -113,24 +82,6 @@
         "owner": "NuschtOS",
         "ref": "v0.1.1",
         "repo": "ixx",
-        "type": "github"
-      }
-    },
-    "make-shell": {
-      "inputs": {
-        "flake-compat": "flake-compat"
-      },
-      "locked": {
-        "lastModified": 1733933815,
-        "narHash": "sha256-9JjM7eT66W4NJAXpGUsdyAFXhBxFWR2Z9LZwUa7Hli0=",
-        "owner": "nicknovitski",
-        "repo": "make-shell",
-        "rev": "ffeceae9956df03571ea8e96ef77c2924f13a63c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nicknovitski",
-        "repo": "make-shell",
         "type": "github"
       }
     },
@@ -247,8 +198,6 @@
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "import-tree": "import-tree",
-        "make-shell": "make-shell",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "systems": "systems_2",
