@@ -49,7 +49,7 @@
             VISUAL = "nvim";
           };
           systemPackages = [
-            pkgs.${config.flake.meta.name}.wrenvim
+            pkgs.wrenvim
           ];
         };
       };
@@ -63,7 +63,7 @@
             VISUAL = "nvim";
           };
           packages = [
-            pkgs.${config.flake.meta.name}.wrenvim
+            pkgs.wrenvim
           ];
         };
       };
