@@ -1,18 +1,11 @@
 {
-  inputs,
-  ...
-}:
-
-{
-  imports = [
-    inputs.make-shell.flakeModules.default
-  ];
-
-  perSystem.make-shells.default =
+  perSystem =
     { pkgs, ... }:
     {
-      packages = [
-        pkgs.just
-      ];
+      devShells.default = pkgs.mkShell {
+        packages = [
+          pkgs.just
+        ];
+      };
     };
 }

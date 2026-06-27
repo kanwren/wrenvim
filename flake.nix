@@ -3,9 +3,6 @@
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
     };
-    make-shell = {
-      url = "github:nicknovitski/make-shell";
-    };
     nixpkgs = {
       url = "github:NixOS/nixpkgs?ref=nixos-25.11";
     };
