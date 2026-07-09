@@ -2,6 +2,7 @@
   inputs = {
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
     nixpkgs = {
       url = "github:NixOS/nixpkgs?ref=nixos-25.11";
@@ -15,6 +16,7 @@
     };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
