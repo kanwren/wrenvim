@@ -6,11 +6,16 @@
 
 {
   perSystem =
-    { system, ... }:
+    { system, pkgs, ... }:
     {
       nixvimConfigurations.wrenvim = inputs.nixvim.lib.evalNixvim {
         modules = [
-          { nixpkgs.hostPlatform.system = system; }
+          {
+            nixpkgs = {
+              hostPlatform.system = system;
+              inherit (pkgs) config;
+            };
+          }
           config.flake.nixvimModules.wrenvim
         ];
       };
