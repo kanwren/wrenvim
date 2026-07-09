@@ -104,13 +104,13 @@
           {
             key = "<Leader>j";
             mode = "n";
-            action = '':%!jq ''' <left><left>'';
+            action = ":%!jq '' <left><left>";
             options.desc = "Run a jq command";
           }
           {
             key = "<Leader>j";
             mode = "x";
-            action = '':!jq ''' <left><left>'';
+            action = ":!jq '' <left><left>";
             options.desc = "Run a jq command";
           }
         ]

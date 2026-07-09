@@ -5,7 +5,7 @@
       userCommands = {
         Scratch = {
           desc = "Open scratch buffer";
-          command = /* vim */ ''new | setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile'';
+          command = /* vim */ "new | setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile";
         };
       };
 
