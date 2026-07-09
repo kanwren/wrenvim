@@ -14,3 +14,7 @@ fmt:
 # Run flake checks
 check:
     nix flake check
+
+# Update dependencies
+update:
+    nix flake update --commit-lock-file
