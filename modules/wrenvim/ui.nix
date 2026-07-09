@@ -86,7 +86,7 @@
           enable = true;
           settings = {
             options = {
-              theme = "catppuccin";
+              theme = "auto";
               globalstatus = true;
             };
             extensions = [
