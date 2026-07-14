@@ -1,36 +1,23 @@
 {
   flake.nixvimModules.wrenvim = {
     plugins = {
-      treesitter = {
-        enable = true;
-        settings = {
-          ensure_installed = [ ];
-          ignore_install = [ ];
-          auto_install = false;
-          sync_install = false;
-
-          highlight = {
-            enable = true;
-            additional_vim_regex_highlighting = false;
-          };
-
-          indent.enable = true;
-
-          incremental_selection = {
-            enable = true;
-            keymaps = {
-              init_selection = "+";
-              node_incremental = "+";
-              scope_incremental = "<CR>";
-              node_decremental = "-";
-            };
-          };
-        };
-
-        lazyLoad.settings.event = "BufEnter";
-      };
-
+      treesitter.enable = true;
       ts-context-commentstring.enable = true;
     };
+
+    autoCmd = [
+      {
+        event = "FileType";
+        callback.__raw = /* lua */ ''
+          function(ev)
+            local _, err = vim.treesitter.get_parser(ev.buf)
+            if not err then
+              vim.treesitter.start(ev.buf)
+              vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            end
+          end
+        '';
+      }
+    ];
   };
 }
