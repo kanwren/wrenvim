@@ -3,7 +3,11 @@
 {
   flake.overlays.default = _final: prev: {
     wrenvim =
-      inputs.self.nixvimConfigurations.${prev.stdenv.hostPlatform.system}.wrenvim.config.build.package;
+      inputs.self.nixvimConfigurations.${prev.stdenv.hostPlatform.system}.wrenvim.config.build.package.overrideAttrs
+        {
+          pname = "wrenvim";
+          name = "wrenvim";
+        };
   };
 
   perSystem =
