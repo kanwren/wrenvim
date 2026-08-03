@@ -1,5 +1,5 @@
 {
-  flake.nixvimModules.wrenvim = {
+  flake.nixvimModules."wrenvim/language-support" = {
     lsp.servers.lua_ls = {
       enable = true;
       config.Lua = {

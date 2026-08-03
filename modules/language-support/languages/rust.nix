@@ -1,5 +1,5 @@
 {
-  flake.nixvimModules.wrenvim = {
+  flake.nixvimModules."wrenvim/language-support" = {
     lsp.servers.rust_analyzer = {
       enable = true;
       config."rust-analyzer" = {

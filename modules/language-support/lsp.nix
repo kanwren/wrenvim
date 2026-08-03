@@ -1,5 +1,5 @@
 {
-  flake.nixvimModules.wrenvim = {
+  flake.nixvimModules."wrenvim/language-support" = {
     lsp = {
       inlayHints.enable = false;
       keymaps = [

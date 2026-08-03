@@ -1,6 +1,5 @@
 {
   inputs,
-  config,
   lib,
   ...
 }:
@@ -16,11 +15,6 @@ in
     {
       _module.args.pkgs = import inputs.nixpkgs {
         inherit system;
-
-        overlays = [
-          config.flake.overlays.default
-        ];
-
         config.allowUnfreePredicate = p: builtins.elem (lib.getName p) allowedUnfreePackages;
       };
     };

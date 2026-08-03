@@ -43,7 +43,5 @@
         # "n:>"
       ];
     };
-
-    plugins.lsp-format.enable = true;
   };
 }
