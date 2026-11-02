@@ -46,13 +46,6 @@ in
     };
 
     overlays.default = _final: prev: mkPackages prev.stdenv.hostPlatform.system;
-
-    modules = {
-      nixos.wrenvim =
-        { system, ... }: config.flake.nixvimConfigurations.${system}.wrenvim.config.build.nixosModule;
-      homeManager.wrenvim =
-        { system, ... }: config.flake.nixvimConfigurations.${system}.wrenvim.config.build.homeModule;
-    };
   };
 
   perSystem =
