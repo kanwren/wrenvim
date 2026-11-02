@@ -53,7 +53,7 @@ in
       nixos.wrenvim =
         { system, ... }: config.flake.nixvimConfigurations.${system}.wrenvim.config.build.nixosModule;
       homeManager.wrenvim =
-        { system, ... }: config.flake.nixvimConfigurations.${system}.wrenvim.config.build.nixosModule;
+        { system, ... }: config.flake.nixvimConfigurations.${system}.wrenvim.config.build.homeModule;
     };
   };
 
