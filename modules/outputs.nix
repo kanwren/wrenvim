@@ -5,16 +5,14 @@
 }:
 
 let
-  mkPackages = pkgs: {
-    wrenvim =
-      config.flake.nixvimConfigurations.${pkgs.stdenv.hostPlatform.system}.wrenvim.config.build.package.overrideAttrs
-        {
-          pname = "wrenvim";
-          name = "wrenvim";
-        };
+  mkPackages = system: {
+    wrenvim = config.flake.nixvimConfigurations.${system}.wrenvim.config.build.package.overrideAttrs {
+      pname = "wrenvim";
+      name = "wrenvim";
+    };
 
     wrenvim-minimal =
-      config.flake.nixvimConfigurations.${pkgs.stdenv.hostPlatform.system}.wrenvim-minimal.config.build.package.overrideAttrs
+      config.flake.nixvimConfigurations.${system}.wrenvim-minimal.config.build.package.overrideAttrs
         {
           pname = "wrenvim";
           name = "wrenvim";
@@ -47,7 +45,7 @@ in
       };
     };
 
-    overlays.default = final: _prev: mkPackages final;
+    overlays.default = _final: prev: mkPackages prev.stdenv.hostPlatform.system;
 
     modules = {
       nixos.wrenvim =
@@ -93,7 +91,7 @@ in
 
       packages =
         let
-          p = mkPackages pkgs;
+          p = mkPackages pkgs.stdenv.hostPlatform.system;
         in
         p // { default = p.wrenvim; };
     };
